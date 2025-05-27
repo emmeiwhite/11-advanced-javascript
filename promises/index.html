@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Promises</title>
+  </head>
+  <body>
+    <section class="max-w-6xl mx-auto py-4">
+      <h1 class="text-2xl font-bold">Promise</h1>
+      <p>
+        A Promise is an object representing the eventual completion or failure of an asynchronous
+        task
+      </p>
+
+      <pre>
+        <code>const promise = new Promise((resolve, reject) => {
+         // async operation 
+        });</code>
+    </pre>
+
+      <table class="table-auto w-4/5">
+        <thead class="text-left">
+          <tr>
+            <th>Callback</th>
+            <th>Promise</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Inversion of control</td>
+            <td>
+              Predictable chaining (
+              <code>then</code>
+              ,
+              <code>catch</code>
+              )
+            </td>
+          </tr>
+
+          <tr>
+            <td>Error handling is scattered</td>
+            <td>Unified error handling</td>
+          </tr>
+
+          <tr>
+            <td>Callback hell</td>
+            <td>
+              Avoided with
+              <code>.then()</code>
+              chaining
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <script
+      type="module"
+      src="script.js"></script>
+  </body>
+</html>
