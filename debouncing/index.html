@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Debouncing</title>
+  </head>
+  <body>
+    <h1>⚡️ What is Debouncing?</h1>
+    <p>
+      Debouncing is a technique to delay a function call until the user has stopped performing an
+      action for a set period of time.
+    </p>
+
+    <h2>🔹 WHY do we need it?</h2>
+    <p>Imagine a user is typing in a search bar. Without debouncing:</p>
+    <li>You fire an API request on every keystroke (wasteful, heavy on performance).</li>
+    <p>With debouncing:</p>
+    <li>You wait until the user stops typing for, say, 500ms, and then fire the request.</li>
+
+    <h2>📱 Real-World Analogy</h2>
+    <p>
+      You call someone’s name, they don't respond immediately — they wait a few seconds to ensure
+      you’re not calling again. That’s debouncing.
+    </p>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
