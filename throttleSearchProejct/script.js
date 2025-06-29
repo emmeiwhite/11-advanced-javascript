@@ -4,6 +4,7 @@ const url = 'https://dummyjson.com/products?limit=10&skip=0'
 
 const productsWrapper = document.querySelector('.productsWrapper')
 
+/* 1. Normal APICall Function */
 async function fetchProducts() {
   productsWrapper.innerHTML = '<p>Loading ...</p>'
   const resp = await fetch(url)
@@ -28,6 +29,21 @@ async function fetchProducts() {
 
   console.log(htmlProducts)
   productsWrapper.innerHTML = htmlProducts
+}
+
+/** 2. Throttle Function */
+
+function throttle(func, delay) {
+  let lastCall = 0
+
+  return function (...args) {
+    let now = Date.now()
+
+    if (now - lastCall > delay) {
+      lastCall = now
+      func(...args)
+    }
+  }
 }
 
 // Initial Load
