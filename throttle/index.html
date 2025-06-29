@@ -14,6 +14,20 @@
       A Technique in JavaScript, which allows us to call a function only after a specified time
       difference. All the calls made before a set time difference will be ignored
     </p>
+
+    <h2>🔍 Step 1: Why Use Throttle for Infinite Scroll?</h2>
+
+    <ul>
+      <li>If we attach a scroll event listener, it fires dozens of times per second.</li>
+      <li>
+        We don’t want to fetch data
+        <strong>every pixel scroll</strong>
+        — only when we're near the bottom.
+      </li>
+      <li>
+        So we throttle the scroll handler, ensuring it's only called once every X milliseconds.
+      </li>
+    </ul>
     <script src="./script.js"></script>
   </body>
 </html>
