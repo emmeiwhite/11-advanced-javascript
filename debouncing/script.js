@@ -1,7 +1,7 @@
 // 🔧 Pure JavaScript Implementation of Debounce
 
-// Step-1: A factory function which does search for us
-
+// Step-1: A function which does search for us
+/* ---
 function search(query) {
   console.log(`API called with: ${query}`)
 }
@@ -25,6 +25,7 @@ function debounce(fn, delay) {
     clearTimeout(timerId) // cancel the last call
     timerId = setTimeout(() => {
       fn(...args)
+      // Call this function after a delay, in case the debounced fxn is invoked before the delay, clearTimeout, set a new timer
     }, delay)
   }
 }
@@ -38,3 +39,21 @@ searchWithDebounce('Hard')
 searchWithDebounce('Hard ')
 searchWithDebounce('Hard J')
 searchWithDebounce('Hard JS')
+--- */
+// Revisit:
+
+function normalSearch(searchTerm) {
+  console.log(`API invoked with ${searchTerm}`)
+}
+
+function debounced(func, delay) {
+  return function (...args) {
+    setTimeout(() => {
+      func(...args)
+    }, delay)
+  }
+}
+
+const debouncedFxn = debounced(normalSearch, 3000)
+
+debouncedFxn('H')
