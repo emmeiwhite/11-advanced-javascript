@@ -42,18 +42,71 @@ searchWithDebounce('Hard JS')
 --- */
 // Revisit:
 
-function normalSearch(searchTerm) {
+const form = document.getElementById('searchForm')
+const input = document.getElementById('searchInput')
+
+const resultsContainer = document.querySelector('.productsWrapper')
+
+const url = 'https://dummyjson.com/products/search'
+
+async function normalSearch(searchTerm) {
+  if (!searchTerm.trim()) {
+    resultsContainer.innerHTML = '' //Clear if input is empty
+    return
+  }
+
+  /**  --- 1)  Loading State --- */
+  resultsContainer.innerHTML = '<p>Loading...</p>'
   console.log(`API invoked with ${searchTerm}`)
+
+  // Simulate a real API call
+
+  try {
+    const resp = await fetch(`${url}?q=${searchTerm}`)
+    const data = await resp.json()
+
+    if (data.products.length === 0) {
+      resultsContainer.innerHTML = `<p>No results found for "${searchTerm}".</p>`
+      return
+    }
+
+    console.log(data.products)
+
+    /** 2. Success Results */
+    resultsContainer.innerHTML = data.products
+      .map(product => {
+        return `
+            <div style="border:1px solid #ccc; margin:10px; padding:10px;">
+          <h3>${product.title}</h3>
+          <p>Price: $${product.price}</p>
+          <img src="${product.thumbnail}" alt="${product.title}" style="width:100px;" />
+        </div>
+      `
+      })
+      .join('')
+  } catch (error) {
+    console.log('API Error:', error)
+
+    resultsContainer.innerHTML =
+      '<p style="color: red;">Failed to fetch data. Please try again.</p>'
+  }
 }
 
 function debounced(func, delay) {
+  let timerID
   return function (...args) {
-    setTimeout(() => {
-      func(...args)
+    clearTimeout(timerID)
+    timerID = setTimeout(() => {
+      func(...args) // Here we are invoking normalSearch fxn with the searchTerm
     }, delay)
   }
 }
 
-const debouncedFxn = debounced(normalSearch, 3000)
+const debouncedSearch = debounced(normalSearch, 1000)
 
-debouncedFxn('H')
+input.addEventListener('input', e => {
+  const formData = new FormData(form)
+  const searchTerm = formData.get('searchTerm')
+  debouncedSearch(searchTerm)
+})
+// debouncedFxn('H')
