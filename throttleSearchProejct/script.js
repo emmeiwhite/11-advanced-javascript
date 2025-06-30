@@ -48,3 +48,8 @@ function throttle(func, delay) {
 
 // Initial Load
 fetchProducts()
+
+/** 3. Scroll Listener With Throttle */
+function handleScroll() {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+}
