@@ -29,6 +29,33 @@
         cursor: pointer;
         color: white;
       }
+
+      .fruit-list {
+        padding: 2rem;
+        border: 2px solid green;
+        border-radius: 0.625rem;
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .fruit-list li {
+        background-color: #777;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 0.625rem;
+        transition: all 0.5s ease-in-out;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .fruit-list li:hover {
+        background-color: #999;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 0.625rem;
+      }
     </style>
   </head>
   <body>
@@ -38,6 +65,22 @@
         <button id="child">Click Me</button>
       </div>
     </div>
+
+    <h2>🔹 3. Event Delegation</h2>
+
+    <p>
+      📌 Instead of attaching event to each child, attach it to a common ancestor and let events
+      bubble up.
+    </p>
+
+    <ul class="fruit-list">
+      <li>Apple</li>
+      <li>Mango</li>
+      <li>Pear</li>
+      <li>Banana</li>
+      <li>Orange</li>
+    </ul>
+    <button class="add-new">Add new item</button>
     <script src="./script.js"></script>
   </body>
 </html>
