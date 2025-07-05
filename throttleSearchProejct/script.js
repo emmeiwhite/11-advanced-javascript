@@ -41,15 +41,21 @@ function throttle(func, delay) {
 
     if (now - lastCall > delay) {
       lastCall = now
-      func(...args)
+      func(...args) // This is our function being called after a delay time interval
     }
   }
 }
 
-// Initial Load
-fetchProducts()
-
 /** 3. Scroll Listener With Throttle */
 function handleScroll() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+
+  if (scrollTop + clientHeight >= scrollHeight - 100) {
+    console.log('🎯 User is near the bottom!')
+  }
 }
+// Attach throttled scroll listener
+window.addEventListener('scroll', throttle(handleScroll, 1000))
+
+// Initial Load
+fetchProducts()
