@@ -12,5 +12,9 @@ try {
 }
 
 // 2. SyntaxError: When you write a piece of code that JS cannot understand
+try {
+    let word = "Keep Moving... // SyntaxError: Invalid or unexpected token
+} catch (error) {
+    console.error(error.message)
+}
 
-let word = "Keep Moving... // SyntaxError: Invalid or unexpected token
