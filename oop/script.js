@@ -31,3 +31,25 @@ const rawaDetails = rawa.getDetails()
 
 console.log(emmeiDetails)
 console.log(rawaDetails)
+
+// Object.create()
+
+const animal = {
+  walk() {
+    console.log(`${this.name} is walking`)
+  }
+}
+const rabbit = Object.create(animal)
+rabbit.name = 'White Rabbit'
+rabbit.jump = function () {
+  console.log(`${this.name} jumps`)
+}
+
+//
+for (let key in rabbit) {
+  if (rabbit.hasOwnProperty(key)) {
+    console.log('Own :', key)
+  } else {
+    console.log('Inherited :', key)
+  }
+}

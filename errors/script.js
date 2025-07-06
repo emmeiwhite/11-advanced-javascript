@@ -19,7 +19,5 @@ try {
     console.error(error.message)
 }
 
-*/
-
-
 const phonePrice; // Uncaught SyntaxError: Missing initializer in const declaration
+*/
