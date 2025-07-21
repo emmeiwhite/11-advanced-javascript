@@ -22,4 +22,9 @@ form.addEventListener('submit', e => {
 
   const date = new Date()
   console.log(date.toDateString())
+
+  date.setDate(date.getDate() + Number(inputText.value))
+  console.log(date.toDateString())
+
+  // So you don’t need to calculate months manually — it auto-wraps!
 })
