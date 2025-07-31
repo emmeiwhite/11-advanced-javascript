@@ -9,5 +9,8 @@ for (let index in arrOfStrings) {
 // for-of (ES6) | clean code
 
 for (let response of arrOfStrings) {
-  console.log(response)
+  if (response === 'success') {
+    console.log(response)
+    break
+  }
 }
