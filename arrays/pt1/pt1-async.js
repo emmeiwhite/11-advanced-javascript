@@ -18,7 +18,7 @@ async function fetchAllSequentially() {
 
 fetchAllSequentially()
 
-// for-each
+// for-each | parallel fetch not sequential
 ids.forEach(async id => {
   await getById(id)
 })
