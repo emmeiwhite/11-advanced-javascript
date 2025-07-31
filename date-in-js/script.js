@@ -12,9 +12,14 @@ buttonElem.addEventListener('click', () => {
   date.innerHTML = `<p>${now.toDateString()}</p>`
 })
 
-//B)  Now, now more interactivity
+// B)  Now, now more interactivity
 const form = document.querySelector('form')
 const inputText = document.querySelector('.countInput')
+
+// C)  Date update
+const dateElem = document.querySelector('.date-update span')
+const date2 = new Date()
+dateElem.innerHTML = date2.toDateString()
 
 form.addEventListener('submit', e => {
   e.preventDefault()
@@ -24,7 +29,10 @@ form.addEventListener('submit', e => {
   console.log(date.toDateString())
 
   date.setDate(date.getDate() + Number(inputText.value))
-  console.log(date.toDateString())
+  dateElem.innerHTML = date.toDateString()
 
   // So you don’t need to calculate months manually — it auto-wraps!
 })
+
+let x = 20
+console.log(x)
