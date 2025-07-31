@@ -9,10 +9,16 @@ function getById(id) {
 
 const ids = [10, 20, 30]
 
+// for-of
 async function fetchAllSequentially() {
-  for (let id of ids) {
-    await getById(id)
-  }
+  //   for (let id of ids) {
+  //     await getById(id)
+  //   }
 }
 
 fetchAllSequentially()
+
+// for-each
+ids.forEach(async id => {
+  await getById(id)
+})
