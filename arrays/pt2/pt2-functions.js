@@ -10,3 +10,10 @@ const foo2 = a => {
 const func = fn => {
   fn('hello')
 }
+
+const func2 = () => {
+  let x = 3
+  return () => {
+    return x
+  }
+}
