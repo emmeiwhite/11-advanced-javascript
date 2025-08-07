@@ -21,3 +21,5 @@ const func2 = () => {
 function Book() {
   this.name = name
 }
+
+new Book('Pirates')
