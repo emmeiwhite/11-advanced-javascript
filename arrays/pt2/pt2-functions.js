@@ -17,3 +17,7 @@ const func2 = () => {
     return x
   }
 }
+
+function Book() {
+  this.name = name
+}
